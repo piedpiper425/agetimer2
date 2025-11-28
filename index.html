@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bat-Protocol Final</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    
     
     <style>
         body {
@@ -194,44 +193,35 @@
         </div>
 
     </div>
-
-
-
 <script>
-$(document).ready(function(){
+        const birthDate = new Date("2004-02-04");
+        const lifeExpectancy = 80;
 
-    $("#submit").click(function(e){
-        e.preventDefault();
-        const dob = new Date($("#dob-input").val());
-        if (!dob || isNaN(dob)) return alert("Enter a valid date!");
-        localStorage.setItem("dob", dob.getTime());
-        startTimer();
-    });
+        function updateTimers() {
+            const now = new Date();
+            const diffTime = now - birthDate;
+            const ageInYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+            
+            const ageString = ageInYears.toFixed(9);
+            const [big, small] = ageString.split('.');
 
-    function startTimer(){
-        $("#choose").hide();
-        $("#timer").css("display", "flex");
+            const deathDate = new Date(birthDate.getTime());
+            deathDate.setFullYear(birthDate.getFullYear() + lifeExpectancy);
+            const leftTime = deathDate - now;
+            const yearsLeft = leftTime / (1000 * 60 * 60 * 24 * 365.25);
 
-        const dob = new Date(parseInt(localStorage.getItem("dob")));
-        setInterval(() => {
-            const age = getAge(dob);
-            $("#age-main").text(age.y);
-            $("#age-decimal").text('.' + age.ms);
-        }, 50);
-    }
+            document.getElementById('age-main').innerText = big;
+            document.getElementById('age-decimal').innerText = "." + small;
+            document.getElementById('countdown').innerText = 
+                yearsLeft.toFixed(9) + " YEARS LEFT TO LIVE (" + ((yearsLeft/lifeExpectancy)*100).toFixed(2) + "%)";
+        }
 
-    function getAge(dob){
-        const now = new Date();
-        const years = (now - dob) / 31556900000;
-        const [y, ms] = years.toFixed(8).split('.');
-        return { y, ms };
-    }
+        setInterval(updateTimers, 50);
+        updateTimers();
+    </script>
 
-    // AUTO START IF DOB ALREADY SAVED
-    if (localStorage.getItem("dob")) startTimer();
 
-});
-</script>
+
 
 </body>
 </html>
