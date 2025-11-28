@@ -161,17 +161,20 @@
                 <span class="face">0^-3</span>
                 <span class="ear">1</span>
             </div>
-            
-            <div class="age-label">CURRENT AGE</div>
-            
-            <div class="timer-box">
-                <div id="age-main">20</div>
-                <div id="age-decimal">.81320717</div>
-            </div>
+             <form id="choose" style="display: block;">
+        <h1 id="dob" class="age-label">When were you born?</h1>
 
-            <div class="tail-box">
-                <div id="countdown" class="years-left">CALCULATING...</div>
-                
+        <footer>
+            <input type="date" name="dob" id="dob-input">
+            <button type="submit" id="submit">Calculate</button>
+        </footer>
+    </form>
+
+    <div id="timer" style="display: none;">
+        <h1 class="age-label">CURRENT AGE</h1>
+        <h2 class="count" id="age"></h2>
+        <h3 class="left" id="time-left"></h3>
+    </div>     
                 <div class="tail-line l1">I'M NOT A DISGRACE, I'M THE NIGHT,</div>
                 <div class="tail-line l2">I'M VENGEANCE,</div>
                 <div class="tail-line l3">I'M BATMAN</div>
