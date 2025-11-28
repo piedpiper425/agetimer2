@@ -161,20 +161,17 @@
                 <span class="face">0^-3</span>
                 <span class="ear">1</span>
             </div>
-             <form id="choose" style="display: block;">
-        <h1 id="dob" class="age-label">When were you born?</h1>
+            
+            <div class="age-label">CURRENT AGE</div>
+            
+            <div class="timer-box">
+                <div id="age-main">20</div>
+                <div id="age-decimal">.81320717</div>
+            </div>
 
-        <footer>
-            <input type="date" name="dob" id="dob-input">
-            <button type="submit" id="submit">Calculate</button>
-        </footer>
-    </form>
-
-    <div id="timer" style="display: none;">
-        <h1 class="age-label">CURRENT AGE</h1>
-        <h2 class="age-main" id="age"></h2>
-        <h3 class="years-left" id="time-left"></h3>
-    </div>     
+            <div class="tail-box">
+                <div id="countdown" class="years-left">CALCULATING...</div>
+                
                 <div class="tail-line l1">I'M NOT A DISGRACE, I'M THE NIGHT,</div>
                 <div class="tail-line l2">I'M VENGEANCE,</div>
                 <div class="tail-line l3">I'M BATMAN</div>
@@ -196,51 +193,32 @@
 
     </div>
 
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        const birthDate = new Date("2004-01-01");
+        const lifeExpectancy = 80;
 
-        gtag('config', 'UA-123605982-1');
+        function updateTimers() {
+            const now = new Date();
+            const diffTime = now - birthDate;
+            const ageInYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+            
+            const ageString = ageInYears.toFixed(8);
+            const [big, small] = ageString.split('.');
+
+            const deathDate = new Date(birthDate.getTime());
+            deathDate.setFullYear(birthDate.getFullYear() + lifeExpectancy);
+            const leftTime = deathDate - now;
+            const yearsLeft = leftTime / (1000 * 60 * 60 * 24 * 365.25);
+
+            document.getElementById('age-main').innerText = big;
+            document.getElementById('age-decimal').innerText = "." + small;
+            document.getElementById('countdown').innerText = 
+                yearsLeft.toFixed(6) + " YEARS LEFT TO LIVE (" + ((yearsLeft/lifeExpectancy)*100).toFixed(2) + "%)";
+        }
+
+        setInterval(updateTimers, 50);
+        updateTimers();
     </script>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
-</head>
-<html lang="en"><head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-123605982-1');
-    </script>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
-</head>
-
-<body>
-
-
-</body></html>
-<!DOCTYPE html>
+</body>
+</html>
