@@ -255,7 +255,24 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/images/time.webp">
 </head>
+     <body>
+           <form id="choose" style="display: block;">
+        <h1 id="dob" class="age-label">When were you born?</h1>
 
+        <footer>
+            <input type="date" name="dob" id="dob-input">
+            <button type="submit" id="submit">Calculate</button>
+        </footer>
+    </form>
 
-</body>
+    <div id="timer" style="display: none;">
+        <h1 class="age-label">CURRENT AGE</h1>
+        <h2 class="count" id="age"></h2>
+        <h3 class="left" id="time-left"></h3>
+    </div>
+
+    <div id="reset">
+        <button type="submit" id="reset-button">reset</button>
+    </div>
+     </body>
 </html>
