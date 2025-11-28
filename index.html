@@ -1,30 +1,11 @@
-<html lang="en"><head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-123605982-1');
-    </script>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bat-Protocol Final</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-</head>
-
-<body>
+    
     <style>
         body {
             background-color: #121212;
@@ -157,32 +138,61 @@
         .t3 { font-size: 0.5rem; margin-top: 2px; opacity: 0.8; }
 
     </style>
-    <form id="choose" style="display: block;">
-        <h1 id="dob" class="age-label">When were you born?</h1>
+</head>
+<body>
 
-        <footer>
-            <input type="date" name="dob" id="dob-input">
-            <button type="submit" id="submit">Calculate</button>
-        </footer>
-    </form>
+    <div class="bat-shape">
+        
+        <!-- LEFT WING -->
+        <div class="wing wing-left">
+            <div class="w1">...LOVE IS HYPOCRITICAL&nbsp;&nbsp;&nbsp;</div>
+            <div class="w2">LOVE HUMILIATES&nbsp;</div>
+            <div class="w4">THE RAGE SHARPENS ME</div>
+            <div class="w4">I AM THE FLAME AND</div>
+            <div class="w2">EVERY INSULT IS A SPARK</div>
+            <div class="w4">CONSISTENCY IS KING&nbsp;</div>
+            <div class="w7">YOU ARE NOT SPECIAL&nbsp;&nbsp;</div>
+        </div>
 
-    <div id="timer" style="display: none;">
-        <h1 class="age-label">CURRENT AGE</h1>
-        <h2 class="count" id="age"></h2>
-        <h3 class="left" id="time-left"></h3>
+        <!-- BAT CENTER -->
+        <div class="body-center">
+            <div class="bat-head">
+                <span class="ear">1</span>
+                <span class="face">0^-3</span>
+                <span class="ear">1</span>
+            </div>
+            
+            <div class="age-label">CURRENT AGE</div>
+            
+            <div class="timer-box">
+                <div id="age-main">20</div>
+                <div id="age-decimal">.81320717</div>
+            </div>
+
+            <div class="tail-box">
+                <div id="countdown" class="years-left">CALCULATING...</div>
+                
+                <div class="tail-line l1">I'M NOT A DISGRACE, I'M THE NIGHT,</div>
+                <div class="tail-line l2">I'M VENGEANCE,</div>
+                <div class="tail-line l3">I'M BATMAN</div>
+                <div class="tail-line t1">10^-31</div>
+                <div class="tail-line t2">...</div>
+            </div>
+        </div>
+
+        <!-- RIGHT WING -->
+        <div class="wing wing-right">
+            <div class="w1">&nbsp;&nbsp;&nbsp;BUT HATRED IS HONEST...</div>
+            <div class="w2">&nbsp;HATRED CRADLES</div>
+            <div class="w4">IT DOES NOT DEFINE ME</div>
+            <div class="w4">I CHOOSE ITS TARGET</div>
+            <div class="w2">I FORGE STEEL FROM IT</div>
+            <div class="w4">&nbsp;POTENTIAL IS FLIRT</div>
+            <div class="w7">&nbsp;&nbsp;OUTWORK EVERYONE<div>
+        </div>
+
     </div>
 
-    <div id="reset">
-        <button type="submit" id="reset-button">reset</button>
-    </div>
-
-
-
-</body></html>
-
-
-
-</body>
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
@@ -225,5 +235,29 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/images/time.webp">
 </head>
-</html>
+
+<body>
+
+    <form id="choose" style="display: block;">
+        <h1 id="dob" class="age-label">When were you born?</h1>
+
+        <footer>
+            <input type="date" name="dob" id="dob-input">
+            <button type="submit" id="submit">Calculate</button>
+        </footer>
+    </form>
+
+    <div id="timer" style="display: none;">
+        <h1 class="age-label">CURRENT AGE</h1>
+        <h2 class="count" id="age"></h2>
+        <h3 class="left" id="time-left"></h3>
+    </div>
+
+    <div id="reset">
+        <button type="submit" id="reset-button">reset</button>
+    </div>
+
+
+
+</body></html>
 <!DOCTYPE html>
