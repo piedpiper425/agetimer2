@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
+<html lang="en"><head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -19,174 +18,16 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp"></head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bat-Protocol Final</title>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            background-color: #121212;
-            color: #2fff00;
-            font-family: 'Archivo Black', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center; 
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(47, 255, 0, 0.4);
-        }
-
-        .bat-shape {
-            display: flex;
-            align-items: flex-start; 
-            justify-content: center;
-            gap: 20px; 
-            margin-top: 20px;   /* Adjusted for better position */
-            
-            /* 🔥 50% SIZE REDUCTION APPLIED (1.25 → 0.625) */
-            transform: scale(0.625);
-            transform-origin: center top;
-        }
-
-        /* 🦇 WINGS — FROM EARLIER VERSION YOU LIKED */
-        .wing {
-            display: flex;
-            flex-direction: column;
-            white-space: nowrap;
-            text-shadow: 0 0 20px rgba(47, 255, 0, 0.45);
-        }
-
-        .wing-left { 
-            text-align: right; 
-            padding-right: 35px;
-            transform: rotate(-4deg) skewX(6deg);
-        }
-
-        .wing-right { 
-            text-align: left; 
-            padding-left: 35px;
-            transform: rotate(4deg) skewX(-6deg);
-        }
-
-        .w1 { font-size: 2.1rem; margin-bottom: 10px; }
-        .w2 { font-size: 1.7rem; margin-bottom: 10px; }
-        .w3 { font-size: 1.25rem; margin-bottom: 10px; }
-        .w4 { font-size: 1.05rem; opacity: 0.85; }
-
-        /* 🦇 BODY CENTER (unchanged) */
-        .body-center {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            margin-top: 10px;
-        }
-
-        /* BAT HEAD + 10^-31 FACE */
-        .bat-head {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 2px;
-            color: #ccffcc;
-        }
-
-        .ear {
-            font-size: 2.0rem;
-            display: inline-block;
-            transform: scaleY(1.8);
-            transform-origin: bottom;
-            margin: 0 5px;
-        }
-
-        .face {
-            font-size: 1.6rem;
-            margin: 0 3px;
-            letter-spacing: 1px;
-        }
-
-        /* Label */
-        .age-label {
-            font-size: 1.0rem;
-            color: #00cc00;
-            margin-bottom: -5px;
-            z-index: 10;
-        }
-
-        /* TIMER */
-        .timer-box {
-            display: flex;
-            align-items: baseline;
-            line-height: 1;
-            margin-top: 0px;
-        }
-        
-        #age-main {
-            font-size: 8rem;
-            margin: 0;
-            letter-spacing: -4px;
-            line-height: 0.9;
-        }
-        
-        #age-decimal {
-            font-size: 2rem;
-            margin-left: 2px;
-        }
-
-        /* TAIL */
-        .tail-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 5px;
-        }
-
-        .years-left {
-            font-size: 0.8rem;
-            color: #00cc00;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .tail-line { line-height: 1.4; }
-        .t1 { font-size: 0.7rem; }
-        .t2 { font-size: 0.6rem; margin-top: 2px; }
-        .t3 { font-size: 0.5rem; margin-top: 2px; opacity: 0.8; }
-
-    </style>
+    <link rel="icon" type="image/x-icon" href="/images/time.webp">
 </head>
+
 <body>
-
-    <div class="bat-shape">
-        
-        <!-- LEFT WING -->
-        <div class="wing wing-left">
-            <div class="w1">...LOVE IS HYPOCRITICAL&nbsp;&nbsp;&nbsp;</div>
-            <div class="w2">LOVE HUMILIATES&nbsp;</div>
-            <div class="w4">THE RAGE SHARPENS ME</div>
-            <div class="w4">I AM THE FLAME AND</div>
-            <div class="w2">EVERY INSULT IS A SPARK</div>
-            <div class="w4">CONSISTENCY IS KING&nbsp;</div>
-            <div class="w7">YOU ARE NOT SPECIAL&nbsp;&nbsp;</div>
-        </div>
-
-        <!-- BAT CENTER -->
-        <div class="body-center">
-            <div class="bat-head">
-                <span class="ear">1</span>
-                <span class="face">0^-3</span>
-                <span class="ear">1</span>
-            </div>
-            
-            <div class="age-label">CURRENT AGE</div>
-            
-            <div class="timer-box">
-                  <form id="choose" style="display: block;">
+   
+    <h1>LOVE IS HYPOCRITICAL... HATRED IS HONEST
+        LOVE HUMILIATES YOU... HATRED CRADLES YOU</h1>
+    <h1>THE RAGE SHARPENS ME IT DOES NOT DEFINE ME
+        I AM THE FLAME AND I CHOOSE ITS TARGET</h1>
+    <form id="choose" style="display: block;">
         <h1 id="dob" class="age-label">When were you born?</h1>
 
         <footer>
@@ -204,28 +45,16 @@
     <div id="reset">
         <button type="submit" id="reset-button">reset</button>
     </div>
-            </div>     
-                <div class="tail-line l1">I'M NOT A DISGRACE, I'M THE NIGHT,</div>
-                <div class="tail-line l2">I'M VENGEANCE,</div>
-                <div class="tail-line l3">I'M BATMAN</div>
-                <div class="tail-line t1">10^-31</div>
-                <div class="tail-line t2">...</div>
-            </div>
-    </div>
+<h2>I'M NOT A DISGRACE, I'M THE NIGHT- CONTROLLED, SILENT, UNSTOPPABLE</h2>
+                    <h2>I'M VENGEANCE, I'M BATMAN</h2>
 
-        <!-- RIGHT WING -->
-        <div class="wing wing-right">
-            <div class="w1">&nbsp;&nbsp;&nbsp;BUT HATRED IS HONEST...</div>
-            <div class="w2">&nbsp;HATRED CRADLES</div>
-            <div class="w4">IT DOES NOT DEFINE ME</div>
-            <div class="w4">I CHOOSE ITS TARGET</div>
-            <div class="w2">I FORGE STEEL FROM IT</div>
-            <div class="w4">&nbsp;POTENTIAL IS FLIRT</div>
-            <div class="w7">&nbsp;&nbsp;OUTWORK EVERYONE<div>
-        </div>
 
-    </div>
-             <head>
+</body></html>
+
+
+
+</body>
+<head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
     <script>
@@ -267,5 +96,29 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/images/time.webp">
 </head>
-     
-</html>
+
+<body>
+
+    <form id="choose" style="display: block;">
+        <h1 id="dob" class="age-label">When were you born?</h1>
+
+        <footer>
+            <input type="date" name="dob" id="dob-input">
+            <button type="submit" id="submit">Calculate</button>
+        </footer>
+    </form>
+
+    <div id="timer" style="display: none;">
+        <h1 class="age-label">CURRENT AGE</h1>
+        <h2 class="count" id="age"></h2>
+        <h3 class="left" id="time-left"></h3>
+    </div>
+
+    <div id="reset">
+        <button type="submit" id="reset-button">reset</button>
+    </div>
+
+
+
+</body></html>
+<!DOCTYPE html>
