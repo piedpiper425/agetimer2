@@ -1,123 +1,141 @@
-html lang="en"><head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>BAT PROTOCOL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    
+    <!-- ✅ LOAD jQUERY IN HEAD (important) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        gtag('config', 'UA-123605982-1');
-    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #2fff00;
+            font-family: 'Archivo Black', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
+        /* 🔥 30% reduction + good centering */
+        .bat-shape {
+            display: none;
+            transform: scale(0.88);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .wing { display: flex; flex-direction: column; white-space: nowrap; }
+        .wing-left { text-align: right; padding-right: 35px; transform: rotate(-4deg) skewX(6deg); }
+        .wing-right { text-align: left; padding-left: 35px; transform: rotate(4deg) skewX(-6deg); }
+
+        .w1 { font-size: 2rem; }
+        .w2 { font-size: 1.7rem; }
+        .w3 { font-size: 1.25rem; }
+        .w4 { font-size: 1rem; opacity: 0.85; }
+
+        .bat-head { display: flex; align-items: baseline; color: #ccffcc; }
+        .ear { font-size: 1.9rem; transform: scaleY(1.8); margin: 0 2px; }
+        .face { font-size: 1.7rem; }
+
+        #age-main { font-size: 6rem; }
+        #age-decimal { font-size: 1.7rem; margin-left: 2px; }
+        #countdown { font-size: 0.9rem; margin-top: 10px; }
+
+        #choose { text-align: center; }
+        #dob-input { padding: 7px; }
+        #submit {
+            padding: 7px 15px;
+            background: #2fff00;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-   
-    <center><h1>LOVE IS HYPOCRITICAL... HATRED IS HONEST
-        LOVE HUMILIATES YOU... HATRED CRADLES YOU</h1>
-    <h1>THE RAGE SHARPENS ME IT DOES NOT DEFINE ME
-        I AM THE FLAME AND I CHOOSE ITS TARGET</h1>
-    <form id="choose" style="display: block;">
-        <h1 id="dob" class="age-label">When were you born?</h1>
 
-        <footer>
-            <input type="date" name="dob" id="dob-input">
-            <button type="submit" id="submit">Calculate</button>
-        </footer>
-    </form>
-
-    <div id="timer" style="display: none;">
-        <h1 class="age-label">CURRENT AGE</h1>
-        <h2 class="count" id="age"></h2>
-        <h3 class="left" id="time-left"></h3>
+    <!-- STEP 1: ENTER DOB -->
+    <div id="choose">
+        <input type="date" id="dob-input" />
+        <button id="submit">ENTER</button>
     </div>
 
-    <div id="reset">
-        <button type="submit" id="reset-button">reset</button>
+    <!-- STEP 2: BAT PROTOCOL ACTIVATES -->
+    <div id="timer" class="bat-shape">
+        <div class="wing wing-left">
+            <div class="w1">LOVE IS HYPOCRITICAL</div>
+            <div class="w2">LOVE HUMILIATES</div>
+            <div class="w3">THE RAGE SHARPENS ME</div>
+            <div class="w4">IT DOES NOT DEFINE ME</div>
+        </div>
+
+        <div class="body-center">
+            <div class="bat-head">
+                <span class="ear">1</span>
+                <span class="face">10^-31</span>
+                <span class="ear">1</span>
+            </div>
+
+            <div class="timer-box">
+                <div id="age-main">00</div>
+                <div id="age-decimal">.00000000</div>
+            </div>
+
+            <div id="countdown">CALCULATING...</div>
+        </div>
+
+        <div class="wing wing-right">
+            <div class="w1">BUT HATRED IS HONEST</div>
+            <div class="w2">HATRED CRADLES</div>
+            <div class="w3">I AM THE FLAME</div>
+            <div class="w4">AND I CHOOSE ITS TARGET</div>
+        </div>
     </div>
-<h2>I'M NOT A DISGRACE, I'M THE NIGHT- CONTROLLED, SILENT, UNSTOPPABLE</h2>
-                    <h2>I'M VENGEANCE, I'M BATMAN</h2></center>
 
 
-</body></html>
 
+<script>
+$(document).ready(function(){
 
+    $("#submit").click(function(e){
+        e.preventDefault();
+        const dob = new Date($("#dob-input").val());
+        if (!dob || isNaN(dob)) return alert("Enter a valid date!");
+        localStorage.setItem("dob", dob.getTime());
+        startTimer();
+    });
+
+    function startTimer(){
+        $("#choose").hide();
+        $("#timer").css("display", "flex");
+
+        const dob = new Date(parseInt(localStorage.getItem("dob")));
+        setInterval(() => {
+            const age = getAge(dob);
+            $("#age-main").text(age.y);
+            $("#age-decimal").text('.' + age.ms);
+        }, 50);
+    }
+
+    function getAge(dob){
+        const now = new Date();
+        const years = (now - dob) / 31556900000;
+        const [y, ms] = years.toFixed(8).split('.');
+        return { y, ms };
+    }
+
+    // AUTO START IF DOB ALREADY SAVED
+    if (localStorage.getItem("dob")) startTimer();
+
+});
+</script>
 
 </body>
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-123605982-1');
-    </script>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
-</head>
-<html lang="en"><head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-N5TCHMY3GV&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-123605982-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-123605982-1');
-    </script>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Age Timer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/images/time.webp">
-</head>
-
-<body>
-
-    <form id="choose" style="display: block;">
-        <h1 id="dob" class="age-label">When were you born?</h1>
-
-        <footer>
-            <input type="date" name="dob" id="dob-input">
-            <button type="submit" id="submit">Calculate</button>
-        </footer>
-    </form>
-
-    <div id="timer" style="display: none;">
-        <h1 class="age-label">CURRENT AGE</h1>
-        <h2 class="count" id="age"></h2>
-        <h3 class="left" id="time-left"></h3>
-    </div>
-
-    <div id="reset">
-        <button type="submit" id="reset-button">reset</button>
-    </div>
-
-
-
-</body></html>
-<!DOCTYPE html>
+</html>
