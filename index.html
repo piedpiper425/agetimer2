@@ -194,13 +194,13 @@
     </div>
 
     <script>
-        const birthDate = new Date("2004-01-01");
+        const birthDate = new Date("2005-02-04");
         const lifeExpectancy = 80;
 
         function updateTimers() {
             const now = new Date();
             const diffTime = now - birthDate;
-            const ageInYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+            const ageInYears = diffTime / (10000 * 60 * 60 * 24 * 365.25);
             
             const ageString = ageInYears.toFixed(8);
             const [big, small] = ageString.split('.');
@@ -208,7 +208,7 @@
             const deathDate = new Date(birthDate.getTime());
             deathDate.setFullYear(birthDate.getFullYear() + lifeExpectancy);
             const leftTime = deathDate - now;
-            const yearsLeft = leftTime / (1000 * 60 * 60 * 24 * 365.25);
+            const yearsLeft = leftTime / (10000 * 60 * 60 * 24 * 365.25);
 
             document.getElementById('age-main').innerText = big;
             document.getElementById('age-decimal').innerText = "." + small;
